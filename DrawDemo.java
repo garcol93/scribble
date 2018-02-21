@@ -58,6 +58,16 @@ public class DrawDemo
     }
     
     /**
+     * Draw a pentagono on the screen.
+     */
+    public void drawPolygon(int x, int y,int lados)
+    {
+        Pen pen = new Pen(x, y, myCanvas);
+        pen.setColor(Color.RED);
+
+        polygon(pen,lados);
+    }
+    /**
      * Draw a wheel made of many squares.
      */
     public void drawWheel()
@@ -94,13 +104,25 @@ public class DrawDemo
     }
 
     /**
-     * Draw a square in the pen's color at the pen's location.
+     * Draw a pentagon in the pen's color at the pen's location.
      */
     private void pentagon(Pen pen)
     {
         for (int i=0; i<5; i++) {
             pen.move(100);
             pen.turn(-72);
+        }
+    }
+    
+    
+    /**
+     * Draw a poligono in the pen's color at the pen's location.
+     */
+    private void polygon(Pen pen ,int lados )
+    {
+        for (int i=0; i<lados; i++) {
+            pen.move(10);
+            pen.turn(360/lados);
         }
     }
     
