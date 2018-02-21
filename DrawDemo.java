@@ -67,6 +67,18 @@ public class DrawDemo
 
         polygon(pen,lados);
     }
+    
+    /**
+     * Draw a spiral on the screen.
+     */
+    public void drawSpiral(int x, int y)
+    {
+        Pen pen = new Pen(x, y, myCanvas);
+        pen.setColor(Color.BLACK);
+
+        spiral(pen);
+    }
+    
     /**
      * Draw a wheel made of many squares.
      */
@@ -113,8 +125,7 @@ public class DrawDemo
             pen.turn(-72);
         }
     }
-    
-    
+        
     /**
      * Draw a poligono in the pen's color at the pen's location.
      */
@@ -123,6 +134,18 @@ public class DrawDemo
         for (int i=0; i<lados; i++) {
             pen.move(10);
             pen.turn(360/lados);
+        }
+    }
+    
+    /**
+     * Draw a spiral in the pen's color at the pen's location.
+     */
+    private void spiral(Pen pen)
+    {
+        int n = 5;
+        for (int i=0; i<60; i++) {
+            pen.move(n++);
+            pen.turn(90);
         }
     }
     
